@@ -1,3 +1,7 @@
+const pokedex = document.getElementById("pokedex");
+
+console.log(pokedex);
+
 const fetchPokemon = () => {
     
     //非同期処理を追加
@@ -20,9 +24,19 @@ const fetchPokemon = () => {
             
 };
 
-
+//　htmlでポケモンを表示
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
+    const pokemonHTMLString = pokemon.map(pokeman => `
+        <li>
+            <img src="${pokeman.image}"/>
+            <h2>${pokeman.id}. ${pokeman.name}</h2>
+            <p>Type: ${pokeman.type}</p>
+        </li>
+        ` )
+
+   
+    pokedex.innerHTML = pokemonHTMLString;
 };
 
 fetchPokemon();
